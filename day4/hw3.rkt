@@ -32,13 +32,7 @@
         (list 'ORR (lambda (x y) (or x y)))
         (list 'NOTT not)))
 
-(define (assqHelper key assList)
-	(cond
-		[(null? assList) ]
-		[(eq? key (first assList)) (rest assList)]
-		[else (assq key (rest assList))]
-		)	
-	)
+
 (define (assq key assList)
 	(cond
 		[(null? assList) #f]
@@ -64,6 +58,7 @@
 
 (define (calculate x)
     (cond
+        [(number? x) x]
         [(symbol? x) (assq x lookup-list)]
         [(eq? (first x) 'ADD) (+ (calculate (first (rest x)))(calculate (second (rest x))))]
         [(eq? (first x) 'SUB) (- (calculate (first (rest x)))(calculate (second (rest x))))]
