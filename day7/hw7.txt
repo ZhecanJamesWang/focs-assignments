@@ -30,3 +30,36 @@ a.
 b.
 \b(1*((1*0){2})*1*)\b
 
+c. 
+
+I used some reference online as following:
+http://cs.stackexchange.com/questions/41932/regular-expression-for-language-with-even-number-of-0s-and-1s
+http://math.stackexchange.com/questions/1665392/regular-expression-for-strings-with-even-number-of-1s-and-number-of-0s-divisib
+http://cs.stackexchange.com/questions/41830/regular-expression-for-even-odd-language-of-string
+
+First A specifies strings with even number of 1's, and exactly two 0's, one of which is the last symbol of the string.
+
+Similarly B specifies strings with odd number of 1's, and exactly two 0's, one of which is the last symbol of the string.
+
+((B∣BA*B)*∣(1)*)
+
+
+d. 
+odd number of 1s:
+^0*1(10*1|0*)*$
+
+even number of 0s:
+^(01*0|1)*$
+
+or
+^(0*1(10*1|0*)*|(01*0|1)*)$
+
+
+
+4. 
+Done
+
+5. 
+Done
+
+
