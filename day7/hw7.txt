@@ -1,3 +1,13 @@
+;;; Student Name: Zhecan Wang [change to your name]
+;;;
+;;; Check one:
+;;; [] I completed this assignment without assistance or external resources.
+;;; [1] I completed this assignment with assistance from ___
+;;;     and/or using these external resources: 
+http://math.stackexchange.com/questions/1665392/regular-expression-for-strings-with-even-number-of-1s-and-number-of-0s-divisib
+http://cs.stackexchange.com/questions/41830/regular-expression-for-even-odd-language-of-string
+
+
 1. 
 
 a. 

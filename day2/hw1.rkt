@@ -1,6 +1,6 @@
 #lang racket
 
-;;; Student Name: Frankly Olin [Zhecan Wang]
+;;; Student Name: Zhecan Wang
 ;;;
 ;;; Check one:
 ;;; [1] I completed this assignment without assistance or external resources.
