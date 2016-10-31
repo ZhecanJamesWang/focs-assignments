@@ -7,8 +7,7 @@ Author : Oliver Steele <oliver.steele@olin.edu>
 Date   : 2016-10-27
 License: MIT License
 """
-
-from queue import Queue
+from Queue import Queue
 
 
 class Graph(object):
@@ -21,6 +20,7 @@ class Graph(object):
     def __init__(self, nodes=[], edges=[]):
         self.nodes = nodes
         self.adjacency_list = {n: [tail for (head, tail) in edges if head == n] for n in nodes}
+        print self.adjacency_list
 
     def find_node(self, label):
         """Find a node by its label."""
@@ -46,23 +46,28 @@ class Node(object):
     def __repr__(self):
         return self.label
 
-
 def bfs(graph, start):
     remaining_nodes = Queue()
     visited = set()
 
     def visit(node):
-        print(node)
         visited.add(node)
         for tail in graph.successors(node):
             if tail not in visited:
+                tail.parent = node
+                tail.dst = tail.parent.dst + 1
                 remaining_nodes.put(tail)
 
+    start.dst = 0
     remaining_nodes.put(start)
     while not remaining_nodes.empty():
         n = remaining_nodes.get()
+        if hasattr(n, 'parent'):
+            print "visting node, ", n, " distance: ", n.dst, " parent: ", n.parent
+        else:
+            print "visting node, ", n, " distance: ", n.dst
         visit(n)
-
+ 
 
 def node_and_edge_labels_to_objects(node_labels, edge_labels):
     """Given a list of node labels, and a list of edges of the form (head_label, tail_label),
@@ -78,4 +83,5 @@ node_labels = ['a', 'b', 'c', 'd', 'e']
 edge_labels = [('a', 'b'), ('a', 'c'), ('b', 'd'), ('b', 'e'), ('e', 'a')]
 
 g = Graph(*node_and_edge_labels_to_objects(node_labels, edge_labels))
+
 bfs(g, g.find_node('a'))
